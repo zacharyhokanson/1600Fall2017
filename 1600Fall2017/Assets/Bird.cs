@@ -7,7 +7,7 @@ public class Bird : Animal {
 	base.Start();
 	Flies();	
 	}
-
+    // list of things only birds can do
 void Flies(){
 	print(this.name + " Flies.");
 	}
