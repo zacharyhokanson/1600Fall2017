@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Fish : Animal {
 
-void Start () {
-	Swims();	
+public override void Start () {
+	base.Swims();	
 	}
 
 void Swims(){
-	print(name + " Swims");
+	print(this.name + " Swims");
 }
 }
