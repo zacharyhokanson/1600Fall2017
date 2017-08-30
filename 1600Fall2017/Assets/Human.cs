@@ -8,6 +8,7 @@ public class Human : Mammal {
 		base.Start();
 		Facebook();
 	}
+	// list of things only humans can do
 	void Facebook (){
 		print(this.name + " Facebooks.");
 	
