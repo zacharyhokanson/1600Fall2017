@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crab : Animal {
+public class Vegetables : Food {
+
     public override void Start () {
 	base.Start();
-	Pinches();	
+	Savory();	
 	}
-    // list of things only crabs can do
-void Pinches(){
-	print(this.name + " Pinches.");
+    // list of things only vegetables can do
+void Savory(){
+	print(this.name + " are Savory.");
 	}
-
 }
