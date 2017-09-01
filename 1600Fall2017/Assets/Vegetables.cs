@@ -10,6 +10,6 @@ public class Vegetables : Food {
 	}
     // list of things only vegetables can do
 void Savory(){
-	print(this.name + " are Savory.");
+	print(this.name + "'s are Savory.");
 	}
 }
