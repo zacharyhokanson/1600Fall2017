@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Whale : Mammal {
+public class Hawk : Bird {
+
 	public override void Start () {
 	base.Start();
-	Sings();	
+	Hunts();	
 	}
-	// list of things only whales can do
-void Sings(){
-	print(this.name + " Sings.");
+	// list of things only hawks can do
+void Hunts(){
+	print(this.name + " Hunts.");
 	}
 }

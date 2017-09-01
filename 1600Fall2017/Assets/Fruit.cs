@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird : Animal {
+public class Fruit : Food {
+
     public override void Start () {
 	base.Start();
-	Flies();	
+	Sweet();	
 	}
-    // list of things only birds can do
-void Flies(){
-	print(this.name + " Flies.");
+    // list of things only Fruts can do
+void Sweet(){
+	print(this.name + " is Sweet.");
 	}
-
 }

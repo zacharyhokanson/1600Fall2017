@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : Animal {
+public class Dog : Mammal {
 
 public override void Start () {
 	base.Start();
-	Swims();	
+	Barks();	
 	}
-	// list of things only fish can do
-void Swims(){
-	print(this.name + " Swims.");
+	// list of things only dogs can do
+void Barks(){
+	print(this.name + " Barks.");
 	}
 }

@@ -7,7 +7,7 @@ public class Mammal : Animal {
 	base.Start();
 	LiveBirth();	
 	}
-
+    // list of things only mammals can do
 void LiveBirth(){
 	print(this.name + " Gives live birth.");
 	}
