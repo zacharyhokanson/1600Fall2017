@@ -18,8 +18,8 @@ public class SyntaxHomework : MonoBehaviour {
 
 
 	void Start () {//parenths are used when calling or defining a fucntion, within them is where you will pass in arguments. 
-		print(myFirstInt) /*if there is an error in your code the easiest way to figure it it out is hovering over 
-		the red squiggled underline. In this case there is a missing semicolon. */
+		print(myFirstInt); /*if there is an error in your code the easiest way to figure it it out is hovering over 
+		the red squiggled underline.*/
 
 	}
 	
