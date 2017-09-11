@@ -12,16 +12,16 @@ public class Vars : MonoBehaviour {
 
 		void OnTriggerEnter()
 		{
-			health += 20;	
+			health = ++health;	
 		}
 	
 	// Update is called once per frame
 	void Update () {
-		// if (health > 0){
-		// 	health -= 0.1f;
-		// } else{
-		// 	print ("You Died");
-		// }
+			// if (health > 0){
+			// 	health -= 0.1f;
+			// } else{
+			// 	print ("You Died");
+			// }
 		
 	}
 }
