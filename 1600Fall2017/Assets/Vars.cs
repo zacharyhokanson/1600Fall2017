@@ -12,7 +12,7 @@ public class Vars : MonoBehaviour {
 
 		void OnTriggerEnter()
 		{
-			health += 20;
+			health += 20;	
 		}
 	
 	// Update is called once per frame
