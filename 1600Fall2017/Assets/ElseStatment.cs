@@ -11,6 +11,9 @@ public class ElseStatment : MonoBehaviour {
 	public int num3;
 	public int value;
 	public bool canPlay = true;
+	public bool playerAlive;
+	public bool statusEffect;
+	public bool quit;
 	public string password = "abcd";
 
 	// Use this for initialization
@@ -19,7 +22,7 @@ public class ElseStatment : MonoBehaviour {
 		{
 			print(value);
 		} else {
-			print("Hello");
+			value = num1 + num2;
 		}
 
 		if (canPlay)
@@ -48,10 +51,47 @@ public class ElseStatment : MonoBehaviour {
 		} else {
 			print(num3);
 		}  
-		if (num1 + num2 == value & num1 + num3 == value){
+		if (num1 + num2 == value && num1 + num3 == value){
 			print(value++);
 		} else {
 			print(num2);
+		}
+		if (playerAlive)
+		{
+			print("Alive");
+		} else{
+			print("Dead");
+		}
+		if (num2 != 0)
+		{
+			value = num1/num2;
+			print(value);
+		} else{
+			print("Can't divide by 0!");
+		}
+		if (value < 0 && value >10)
+		{
+			value = 5;
+		} else{
+			value = value++;
+		}
+		if (statusEffect)
+		{
+			print("Injured");
+		} else{
+			print("Healthy");
+		}
+		if (num1 == 2)
+		{
+			
+		} else{
+			num1 = 2;
+		}
+		if (quit)
+		{
+			print("Goodbye");
+		} else{
+			print("Hello");
 		}
 	}
 }
