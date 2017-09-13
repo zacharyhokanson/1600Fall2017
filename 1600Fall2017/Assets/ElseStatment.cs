@@ -18,16 +18,14 @@ public class ElseStatment : MonoBehaviour {
 		if (num1 + num2 == value)
 		{
 			print(value);
-		}
-		else{
+		} else {
 			print("Hello");
 		}
 
 		if (canPlay)
 		{
 			print("Play");
-		}
-		else{
+		} else {
 			print("Can't Play");
 		}
 
@@ -42,20 +40,17 @@ public class ElseStatment : MonoBehaviour {
 		}
 		if (Input.GetKey("a")){
 			print("a");
-		}
-		else{
+		} else {
 			print("Stopped");
 		}
 		if (num1 != num2){
 			print (num1);
-		} 
-		else{
+		} else {
 			print(num3);
 		}  
 		if (num1 + num2 == value & num1 + num3 == value){
 			print(value++);
-		}
-		else{
+		} else {
 			print(num2);
 		}
 	}
