@@ -6,12 +6,12 @@ public class AddThisToPlayer : MonoBehaviour {
 
 	public Transform attachObject;
 	public GameObject assetArt;
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter()
 	{
 		transform.parent = attachObject;
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = Quaternion.identity;
-		assetArt.SetActive(StaticVars.weaponsEnabled);
+		//assetArt.SetActive(StaticVars.weaponsEnabled);
 	}
 
 }
