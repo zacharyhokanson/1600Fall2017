@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
 public class ifStatement : MonoBehaviour {
 	public int num1;
 	public int num2;
@@ -52,5 +53,28 @@ public class ifStatement : MonoBehaviour {
 		// 	print(num3);
 
 		// }
+=======
+
+public class ifStatement : MonoBehaviour {
+
+	public Text input;
+
+	public bool canPlayGame = false;
+	public string password = "G@am3Pl@y";
+
+	void Update () {
+		if(input.text == password) {
+			print("You know the password.");
+			canPlayGame = true;
+		} else {
+			print("The password is incorrect.");
+		}
+
+		if(canPlayGame) {
+			print("Playing Game");
+		}	else {
+			print("Can't Play Yet, Enter a Correct Password.");
+		}
+>>>>>>> master
 	}
 }

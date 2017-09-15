@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MyClass : MonoBehaviour {
+<<<<<<< HEAD
 	int myInt = 6;
 	string myString = "Hello";
 	char myChar = 'A';
@@ -10,4 +11,13 @@ public class MyClass : MonoBehaviour {
 	void Start () {
 		print(myChar);
 	}
+=======
+
+	string myString = "Hello";
+
+	void Start () {
+		print(myString);
+	}
+	
+>>>>>>> master
 }
