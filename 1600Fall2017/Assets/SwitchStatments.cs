@@ -7,11 +7,14 @@ public class SwitchStatments : MonoBehaviour {
 	//public int cardNumber;
 	public char letterGrade;
 	public Text input;
+	public int choice;
+
 
 	// Use this for initialization
 	void Start () {
 		int cardNumber = Random.Range(1,14);
 		//print (random);
+
 
 
 		switch (cardNumber)
@@ -48,7 +51,23 @@ public class SwitchStatments : MonoBehaviour {
 				print("Invalid Letter Grade");
 				break;
 		}
-		
+		switch (choice){
+			case 1:
+				print("You choose Charmander");
+				break;
+			case 2:
+				print("You choose Squirtle");
+				break;
+			
+			case 3:
+				print("You choose Bulbasaur");
+				break;
+
+			
+			default:
+				print("Invalid choice.");
+				break;
+		}	
 	}
 	
 	// Update is called once per frame
