@@ -8,7 +8,24 @@ public class SwitchStatments : MonoBehaviour {
 	public char letterGrade;
 	public Text input;
 	public int choice;
+	public string[] weapons;
 
+	
+
+	public void MyWeaponSwitch(int i) {
+		switch (weapons[i])
+		{
+			case "Missile" :
+				print("Missile");
+				break;
+			case "Plasma" :
+				print("Plasma");
+				break;
+			default:
+				print("You have no other weapons.");
+				break;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
