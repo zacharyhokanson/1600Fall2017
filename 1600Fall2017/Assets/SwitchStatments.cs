@@ -9,6 +9,7 @@ public class SwitchStatments : MonoBehaviour {
 	public Text input;
 	public int choice;
 	public string[] weapons;
+	public int[] i;
 
 	
 
