@@ -11,6 +11,10 @@ public class SwitchStatments : MonoBehaviour {
 	public string[] weapons;
 	public int[] i;
 
+	public int x;
+	public char character;
+	public string stringOne;
+
 	
 
 	public void MyWeaponSwitch(int i) {
@@ -69,9 +73,76 @@ public class SwitchStatments : MonoBehaviour {
 				print("Invalid Letter Grade");
 				break;
 		}
-		switch (choice){
+		switch (x){ //switch statments can case integers
 			case 1:
-				print("You choose Charmander");
+				print(1);
+				break;
+			case 2:
+				print(2);
+				break;
+			
+			case 3:
+				print(3);
+				break;
+
+			
+			default:
+				print("Invalid choice.");
+				break;
+		}	
+		switch (character){ //switch statments can case characters
+			case 'a':
+				print(character);
+				break;
+			case 'b':
+				print(character);
+				break;
+			
+			case 'c':
+				print(character);
+				break;
+
+			
+			default:
+				print("Invalid choice.");
+				break;
+		}
+		switch (stringOne){ //switches can case strings
+			case "One":
+				print(1);
+				break;
+			case "Two":
+				print(2);
+				break;
+			
+			case "Three":
+				print(3);
+				break;
+
+			
+			default:
+				print("Invalid choice.");
+				break;
+		}
+		switch (choice){ //You can nest switch statments, as useless as this one may be 
+			case 1:
+						switch (choice){
+					case 1:
+						print("You choose Charmander");
+						break;
+					case 2:
+						print("You choose Squirtle");
+						break;
+					
+					case 3:
+						print("You choose Bulbasaur");
+				break;
+
+			
+			default:
+				print("Invalid choice.");
+				break;
+		}
 				break;
 			case 2:
 				print("You choose Squirtle");
@@ -85,7 +156,7 @@ public class SwitchStatments : MonoBehaviour {
 			default:
 				print("Invalid choice.");
 				break;
-		}	
+		}
 	}
 	
 	// Update is called once per frame
@@ -103,6 +174,15 @@ public class SwitchStatments : MonoBehaviour {
 				print("Try again");
 				break;
 		}
-		
+		switch (input.text.ToLower()){ //switch statments could be good for dialouge trees.
+			case "Hello":
+				print("Nice to meet you.");
+				break;
+			case "Goodbye":
+				print("Have a good day!");
+				break;
+			default:
+				break;
+		}
 	}
 }
