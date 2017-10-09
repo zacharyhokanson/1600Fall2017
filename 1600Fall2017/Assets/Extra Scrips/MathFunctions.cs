@@ -22,7 +22,23 @@ public class MathFunctions : MonoBehaviour {
 		numberPassing = SortPassing(Numbers);
 
 	}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	void SortEven(List<int> _numbers) {
+		foreach (int i in _numbers) //Goes through a list of ints and sorts them into even and odd numbers
+		{
+			if ( i % 2 == 0)
+			{
+				//print("Even "+ i);
+				EvenNumbers.Add(i); //adds even numbers to even list
 
+			} else{
+				//print("Odd " + i);
+				OddNumbers.Add(i);//adds odd numbers to odd list
+			}
+		}
+	}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	int ReturnNum(int _num, int _num2) {
 		return _num + _num2;
 	}
