@@ -7,35 +7,45 @@ public class MathFunctions : MonoBehaviour {
 	public int health;
 	public int ammo;
 	public string myPassword = "CoolStuff";
-	public List <int> OddNumbers = new List<int>();
-	public List <int> EvenNumbers = new List<int>();
-	public List<int> Numbers = new List<int>(){50, 75, 24, 13, 89, 100};
-	public List <int> PassingGrades = new List<int>();
-	public List <int> FailingGrades = new List<int>();
+	public List <int> oddNumbers = new List<int>();
+	public List <int> evenNumbers = new List<int>();
+	public List<int> numbers = new List<int>(){50, 75, 24, 13, 89, 100};
+	public List <int> passingGrades = new List<int>();
+	public List <int> failingGrades = new List<int>();
 	public int numberPassing;
+	public int sortedEvens;
+	public int x = 0;
+	public int z = 0;
+	public string playerName = "Steve";
+
 
 
 	// Use this for initialization
 	void Start () {
 		myScore = ReturnNum(health, ammo);
 		myPassword = ReturnPassword(myPassword);
-		numberPassing = SortPassing(Numbers);
+		numberPassing = SortPassing(numbers);
+		sortedEvens = SortEven(numbers);
+		x = AddNumbers();
+		print(PrintNameSentance(playerName));
+		z = PrintForLoop();
 
 	}
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	void SortEven(List<int> _numbers) {
+	int SortEven(List<int> _numbers) {
 		foreach (int i in _numbers) //Goes through a list of ints and sorts them into even and odd numbers
 		{
 			if ( i % 2 == 0)
 			{
 				//print("Even "+ i);
-				EvenNumbers.Add(i); //adds even numbers to even list
+				evenNumbers.Add(i); //adds even numbers to even list
 
 			} else{
 				//print("Odd " + i);
-				OddNumbers.Add(i);//adds odd numbers to odd list
+				oddNumbers.Add(i);//adds odd numbers to odd list
 			}
 		}
+		return evenNumbers.Count;
 	}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,35 +63,45 @@ public class MathFunctions : MonoBehaviour {
 			return "Incorrect";
 		}
 	}
-	void SortEven(List<int> _numbers) {
-		foreach (int i in _numbers) //Goes through a list of ints and sorts them into even and odd numbers
-		{
-			if ( i % 2 == 0)
-			{
-				//print("Even "+ i);
-				EvenNumbers.Add(i); //adds even numbers to even list
-
-			} else{
-				//print("Odd " + i);
-				OddNumbers.Add(i);//adds odd numbers to odd list
-			}
-		}
-	}
 	int SortPassing(List<int> _grades){
 		foreach (int i in _grades)
 		{
 			if (i >= 70)
 			{
-				PassingGrades.Add(i);
+				passingGrades.Add(i);
 				
 
 			}else{
-				FailingGrades.Add(i);
+				failingGrades.Add(i);
 				
 			}
 		
 
 		}
-		return PassingGrades.Count;
+		return passingGrades.Count;
+	}
+
+	int AddNumbers(){
+
+		for (int i = 0; i < 10; i++)
+		{
+			x = x + 1;
+		}
+		return x;
+	}
+	
+	string PrintNameSentance(string _name){
+		string z;
+		z = string.Format("Hello {0}!", _name);
+		return z;
+	}
+	int PrintForLoop(){
+		int timesCounted = 0;
+		for (int i = 0; i < 12; i++)
+		{
+			print ("Hello");
+			timesCounted++;
+		}
+		return timesCounted;
 	}
 }
