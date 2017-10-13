@@ -104,4 +104,25 @@ public class MathFunctions : MonoBehaviour {
 		}
 		return timesCounted;
 	}
+	int MultiplyNumbers(int _n){
+		for (int i = 0; i < 10; i++)
+		{
+			_n = _n*3;
+		}
+		return _n;
+	}
+	int DivideNumbers(int _n){
+		for (int i = 0; i < 12; i++)
+		{
+			_n = _n/2;
+		}
+		return _n;
+	}
+	int ComplexMulitply(int _n, int _t){ //takes arguemnts _n number and _t times
+		for (int i = 0; i < _t; i++)//multiplies _n by 2 _t times.
+		{
+			_n = _n *2;
+		}
+		return _n;
+	}
 }
