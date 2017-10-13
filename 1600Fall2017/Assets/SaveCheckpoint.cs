@@ -11,7 +11,7 @@ public class SaveCheckpoint : MonoBehaviour {
 
 		checkPoint = transform.position;
 
-		for (int i = 0; i < checkPoint.magnitude; i++)
+		for (int i = 0; i < playerPrefsTitles.Length; i++)
 		{
 			PlayerPrefs.SetFloat(playerPrefsTitles[i], checkPoint[i]);
 			print(PlayerPrefs.GetFloat(playerPrefsTitles[i]));
