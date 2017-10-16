@@ -19,8 +19,7 @@ public class CharacterControl : MonoBehaviour {
 		
 		if (characterController.isGrounded){
 
-			if (Input.GetKey(KeyCode.Space))
-			{
+			if (Input.GetKey(KeyCode.Space)){
 				moveVector3.y += jumpForce * Time.deltaTime;
 			}
 			
