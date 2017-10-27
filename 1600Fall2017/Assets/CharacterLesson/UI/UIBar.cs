@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIBar : MonoBehaviour {
 
 	public Image bar;
+	public GameObject gameOverUI;
 	public float powerLevel = 0.1f;
 	public float amountToAdd = 0.01f;
 	public enum PowerUpType {
@@ -45,8 +46,10 @@ public class UIBar : MonoBehaviour {
 			bar.fillAmount -= amountToAdd;
 			
 			yield return new WaitForSeconds(amountToAdd);
+
 			if (bar.fillAmount == 0) {
-				yield return null;
+				gameOverUI.SetActive(true);
+				CharacterControl.gameOver = true;
 			}
 		}
 	}
