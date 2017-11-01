@@ -7,7 +7,9 @@ public class CharacterControl : MonoBehaviour {
 	public static bool gameOver;
 	public float gravity = 9.81f;
 	public float jumpForce = 150;
+	public int airJump = 1;
 	public float speed = 30;
+	//add acceleration variable?//
 	public Vector3 moveVector3;
 	public CharacterController characterController;
 	void Start () {
@@ -15,19 +17,22 @@ public class CharacterControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		moveVector3.y -= gravity * Time.deltaTime;
-		
-		if (characterController.isGrounded && !gameOver){
+		if (!gameOver) {
+			moveVector3.y -= gravity * Time.deltaTime;// **TO FIX** gravity works fine with jumping, not with falling. 
 
-			if (Input.GetKey(KeyCode.Space)){
-				moveVector3.y = jumpForce * Time.deltaTime;
-			}
-			
 			moveVector3.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-
+			if (airJump != 0 && Input.GetKeyDown("space")) {
+				moveVector3.y = jumpForce * Time.deltaTime;
+				airJump -= 1;
+			}		
+			
+			if (characterController.isGrounded){
+				airJump = 1;
+			}
+			
+			characterController.Move(moveVector3);	
 		}
-		
-		characterController.Move(moveVector3);	
 	}
+		
 }
