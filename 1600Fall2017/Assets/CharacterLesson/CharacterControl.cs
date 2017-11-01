@@ -20,9 +20,9 @@ public class CharacterControl : MonoBehaviour {
 		if (!gameOver) {
 			moveVector3.y -= gravity * Time.deltaTime;// **TO FIX** gravity works fine with jumping, not with falling. 
 
-			moveVector3.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+			moveVector3.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime; //allows horizontal movement while jumping. 
 
-			if (airJump != 0 && Input.GetKeyDown("space")) {
+			if (airJump != 0 && Input.GetKeyDown("space")) { // handles Jumping
 				moveVector3.y = jumpForce * Time.deltaTime;
 				airJump -= 1;
 			}		
