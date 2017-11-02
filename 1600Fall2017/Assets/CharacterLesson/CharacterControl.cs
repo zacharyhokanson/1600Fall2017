@@ -18,8 +18,15 @@ public class CharacterControl : MonoBehaviour {
 	
 	void FixedUpdate () {
 		if (!gameOver) {
-			moveVector3.y -= gravity * Time.deltaTime;// **TO FIX** gravity works fine with jumping, not with falling. 
-
+			
+			if (!characterController.isGrounded){
+				moveVector3.y -= gravity * Time.deltaTime;// **TO FIX** gravity works fine with jumping, not with falling. 
+			}
+			else {
+				airJump = 2;
+				moveVector3.y = 0;
+			}
+			
 			moveVector3.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime; //allows horizontal movement while jumping. 
 
 			if (airJump != 0 && Input.GetKeyDown("space")) { // handles Jumping
@@ -27,9 +34,9 @@ public class CharacterControl : MonoBehaviour {
 				airJump -= 1;
 			}		
 			
-			if (characterController.isGrounded){
-				airJump = 1;
-			}
+			// if (characterController.isGrounded){
+			// 	airJump = 1;
+			// }
 			
 			characterController.Move(moveVector3);	
 		}
