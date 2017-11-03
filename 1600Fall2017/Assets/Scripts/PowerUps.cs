@@ -31,7 +31,7 @@ public class PowerUps : MonoBehaviour {
 				break;
 			case PowerUpType.Coin:
 				score++;
-				scoreDisplay.text = score.ToString();
+				UIController.ScoreUpdate(score);
 				break;
 		}
 	}	

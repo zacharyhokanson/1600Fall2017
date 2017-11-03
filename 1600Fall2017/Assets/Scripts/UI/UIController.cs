@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 	public Image bar;
 	public GameObject gameOverUI;
+	public Text scoreDisplay;
 
 	public static Image staticBar;
 	public static GameObject staticGameOverUI;
+	public static Text staticScoreDisplay;
 
 
 	void Start() {
 		staticBar = bar;
 		staticGameOverUI = gameOverUI;
+		staticScoreDisplay = scoreDisplay;
 	}
 	public static IEnumerator PowerUpBar(float _powerLevel, float _amountToAdd) {
 			float tempAmount = staticBar.fillAmount + _powerLevel;
@@ -40,6 +43,10 @@ public class UIController : MonoBehaviour {
 				CharacterControl.gameOver = true;
 			}
 		}
+	}
+
+	public static void ScoreUpdate(int _score) {
+		staticScoreDisplay.text = _score.ToString();
 	}
 }
 
