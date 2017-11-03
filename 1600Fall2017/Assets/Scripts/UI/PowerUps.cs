@@ -16,13 +16,14 @@ public class PowerUps : MonoBehaviour {
 	public PowerUpType powerUp;
 
 	void OnTriggerEnter () {
+		ChangeHealth myChangeHealth = gameObject.AddComponent<ChangeHealth>() as ChangeHealth;
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
-				ChangeHealth.HealthUp();
+				myChangeHealth.HealthUp();
 				break;
 			case PowerUpType.PowerDown:
-				ChangeHealth.HealthDown();
+				myChangeHealth.HealthDown();
 				break;
 			case PowerUpType.Jump:
 				CharacterControl.airJump = 3;
