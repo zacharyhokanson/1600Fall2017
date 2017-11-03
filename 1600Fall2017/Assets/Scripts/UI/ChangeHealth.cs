@@ -6,36 +6,37 @@ using UnityEngine.UI;
 public class ChangeHealth : MonoBehaviour {
 	public Image bar;
 	public GameObject gameOverUI;
-	public float powerLevel = 0.1f;
-	public float amountToAdd = 0.01f;
-	public void HealthUp() {
-		StartCoroutine(PowerUpBar());
+
+	public static Image staticBar;
+	public static GameObject staticGameOverUI;
+
+
+	void Start() {
+		staticBar = bar;
+		staticGameOverUI = gameOverUI;
 	}
-	public void HealthDown(){
-		StartCoroutine(PowerDownBar());
-	}
-	public IEnumerator PowerUpBar() {
-			float tempAmount = bar.fillAmount + powerLevel;
+	public static IEnumerator PowerUpBar(float _powerLevel, float _amountToAdd) {
+			float tempAmount = staticBar.fillAmount + _powerLevel;
 			if (tempAmount > 1) {
 				tempAmount = 1;
 			}
-			while (bar.fillAmount < tempAmount) {
-				bar.fillAmount += amountToAdd;
-				yield return new WaitForSeconds(amountToAdd);
+			while (staticBar.fillAmount < tempAmount) {
+				staticBar.fillAmount += _amountToAdd;
+				yield return new WaitForSeconds(_amountToAdd);
 			}
 		}
-	public IEnumerator PowerDownBar() {
-		float tempAmount = bar.fillAmount - powerLevel;
+	public static IEnumerator PowerDownBar(float _powerLevel, float _amountToAdd) {
+		float tempAmount = staticBar.fillAmount - _powerLevel;
 		if (tempAmount < 0) {
 			tempAmount = 0;
 		}
-		while (bar.fillAmount > tempAmount) {
-			bar.fillAmount -= amountToAdd;
+		while (staticBar.fillAmount > tempAmount) {
+			staticBar.fillAmount -= _amountToAdd;
 		
-			yield return new WaitForSeconds(amountToAdd);
+			yield return new WaitForSeconds(_amountToAdd);
 
-			if (bar.fillAmount == 0) {
-				gameOverUI.SetActive(true);
+			if (staticBar.fillAmount == 0) {
+				staticGameOverUI.SetActive(true);
 				CharacterControl.gameOver = true;
 			}
 		}

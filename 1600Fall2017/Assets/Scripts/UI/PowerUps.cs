@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour {
 
-	// public Image bar;
-	// public GameObject gameOverUI;
+	public float powerLevel = 0.1f;
+	public float amountToAdd = 0.01f;
 
 	public enum PowerUpType {
 		PowerUp, 
@@ -16,14 +16,13 @@ public class PowerUps : MonoBehaviour {
 	public PowerUpType powerUp;
 
 	void OnTriggerEnter () {
-		ChangeHealth myChangeHealth = gameObject.AddComponent<ChangeHealth>() as ChangeHealth;
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
-				myChangeHealth.HealthUp();
+				StartCoroutine(ChangeHealth.PowerUpBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.PowerDown:
-				myChangeHealth.HealthDown();
+				StartCoroutine(ChangeHealth.PowerDownBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.Jump:
 				CharacterControl.airJump = 3;
