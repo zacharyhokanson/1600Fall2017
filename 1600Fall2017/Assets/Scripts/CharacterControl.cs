@@ -7,7 +7,7 @@ public class CharacterControl : MonoBehaviour {
 	public static bool gameOver;
 	public float gravity = 9.81f;
 	public float jumpForce = 150;
-	public static int airJump = 2;
+	public static int airJump = 2	;
 	public int jumps = airJump;
 	public float speed = 30;
 	//add acceleration variable?//
