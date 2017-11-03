@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIBar : MonoBehaviour {
+public class PowerUps : MonoBehaviour {
 
 	public Image bar;
 	public GameObject gameOverUI;
@@ -11,7 +11,8 @@ public class UIBar : MonoBehaviour {
 	public float amountToAdd = 0.01f;
 	public enum PowerUpType {
 		PowerUp, 
-		PowerDown
+		PowerDown,
+		Jump
 	}
 	public PowerUpType powerUp;
 
@@ -23,6 +24,9 @@ public class UIBar : MonoBehaviour {
 				break;
 			case PowerUpType.PowerDown:
 				StartCoroutine(PowerDownBar());
+				break;
+			case PowerUpType.Jump:
+				CharacterControl.airJump = 3;
 				break;
 		}
 	}
