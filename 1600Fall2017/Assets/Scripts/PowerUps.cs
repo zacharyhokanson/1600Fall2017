@@ -7,11 +7,13 @@ public class PowerUps : MonoBehaviour {
 
 	public float powerLevel = 0.1f;
 	public float amountToAdd = 0.01f;
+	public int score = 0;
 
 	public enum PowerUpType {
 		PowerUp, 
 		PowerDown,
-		Jump
+		Jump,
+		Coin
 	}
 	public PowerUpType powerUp;
 
@@ -26,6 +28,10 @@ public class PowerUps : MonoBehaviour {
 				break;
 			case PowerUpType.Jump:
 				CharacterControl.airJump = 3;
+				break;
+			case PowerUpType.Coin:
+				score++;
+				scoreDisplay.text = score.ToString();
 				break;
 		}
 	}	
