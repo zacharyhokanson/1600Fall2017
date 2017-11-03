@@ -19,10 +19,10 @@ public class PowerUps : MonoBehaviour {
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
-				StartCoroutine(ChangeHealth.PowerUpBar(powerLevel, amountToAdd));
+				StartCoroutine(UIController.PowerUpBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.PowerDown:
-				StartCoroutine(ChangeHealth.PowerDownBar(powerLevel, amountToAdd));
+				StartCoroutine(UIController.PowerDownBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.Jump:
 				CharacterControl.airJump = 3;
