@@ -11,6 +11,8 @@ public class PowerUps : MonoBehaviour {
 	public int score = 0;
 	public int totalScore;
 
+	public UIController controller;
+
 	public enum PowerUpType {
 		PowerUp, 
 		PowerDown,
@@ -23,10 +25,10 @@ public class PowerUps : MonoBehaviour {
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
-				StartCoroutine(UIController.PowerUpBar(powerLevel, amountToAdd));
+				StartCoroutine(controller.PowerUpBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.PowerDown:
-				StartCoroutine(UIController.PowerDownBar(powerLevel, amountToAdd));
+				StartCoroutine(controller.PowerDownBar(powerLevel, amountToAdd));
 				break;
 			case PowerUpType.Jump:
 				CharacterControl.airJump = 3;
@@ -40,11 +42,11 @@ public class PowerUps : MonoBehaviour {
 	}	
 
 	IEnumerator CollectCoin() {
-		totalScore = int.Parse(UIController.staticScoreDisplay.text);
+		totalScore = int.Parse(controller.scoreDisplay.text);
 		//UIController.staticScoreDisplay.text = (totalScore + coinValue).ToString();
 		int tempAmount = totalScore + coinValue;
 		while(totalScore <= tempAmount) {
-			UIController.staticScoreDisplay.text = (totalScore++).ToString();
+			controller.scoreDisplay.text = (totalScore++).ToString();
 			yield return new WaitForFixedUpdate();
 		}
 	}
