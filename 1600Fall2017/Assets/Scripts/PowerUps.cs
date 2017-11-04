@@ -8,8 +8,7 @@ public class PowerUps : MonoBehaviour {
 	public float powerLevel = 0.1f;
 	public float amountToAdd = 0.01f;
 	public int coinValue = 10;
-	public int score = 0;
-	public int totalScore;
+	
 
 	public UIController controller;
 
@@ -17,7 +16,8 @@ public class PowerUps : MonoBehaviour {
 		PowerUp, 
 		PowerDown,
 		Jump,
-		Coin
+		Coin,
+		LevelWon
 	}
 	public PowerUpType powerUp;
 
@@ -34,20 +34,15 @@ public class PowerUps : MonoBehaviour {
 				CharacterControl.airJump = 3;
 				break;
 			case PowerUpType.Coin:
-				// score++;
-				// UIController.ScoreUpdate(score);
-				StartCoroutine(CollectCoin());
+				StartCoroutine(controller.CollectCoin(coinValue));
+				break;
+			case PowerUpType.LevelWon:
+				CharacterControl.gameOver = true;
+				controller.ChangeText("You Win!", "Next Level");
+				controller.levelUI.SetActive(true);
 				break;
 		}
 	}	
 
-	IEnumerator CollectCoin() {
-		totalScore = int.Parse(controller.scoreDisplay.text);
-		//UIController.staticScoreDisplay.text = (totalScore + coinValue).ToString();
-		int tempAmount = totalScore + coinValue;
-		while(totalScore <= tempAmount) {
-			controller.scoreDisplay.text = (totalScore++).ToString();
-			yield return new WaitForFixedUpdate();
-		}
-	}
+	
 }
