@@ -48,9 +48,9 @@ public class UIController : MonoBehaviour {
 		}
 	}
 	public void EndGame(string _levelText, string _buttonText) {
-		levelOverText.alignment = TextAnchor.UpperCenter;
+		//levelOverText.alignment = TextAnchor.UpperCenter;
 		levelOverText.text = _levelText;
-		buttonText.alignment = TextAnchor.MiddleCenter;
+		//buttonText.alignment = TextAnchor.MiddleCenter;
 		buttonText.text = _buttonText;
 		levelUI.SetActive(true);
 		CharacterControl.canPlay = false;
