@@ -20,7 +20,7 @@ public class ReplayGame : MonoBehaviour {
 		player.position = startPosition;
 		uiBar.fillAmount = fillAmount;
 		GameOverUI.SetActive(false);
-		CharacterControl.gameOver = false;
+		CharacterControl.canPlay = true;
 	}
 
 

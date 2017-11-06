@@ -37,9 +37,9 @@ public class PowerUps : MonoBehaviour {
 				StartCoroutine(controller.CollectCoin(coinValue));
 				break;
 			case PowerUpType.LevelWon:
-				CharacterControl.gameOver = true;
-				controller.ChangeText("You Win!", "Next Level");
-				controller.levelUI.SetActive(true);
+				//CharacterControl.canPlay = false;
+				controller.EndGame("You Win!", "Next Level");
+				//controller.levelUI.SetActive(true);
 				break;
 		}
 	}	

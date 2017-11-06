@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour {
 
-	public static bool gameOver;
+	public static bool canPlay = true;
 	public float gravity = 9.81f;
 	public float jumpForce = 150;
 	public static int airJump = 2	;
@@ -18,7 +18,7 @@ public class CharacterControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if (!gameOver) {
+		if (canPlay) {
 			
 			if (!characterController.isGrounded){
 				moveVector3.y -= gravity * Time.deltaTime;

@@ -33,9 +33,9 @@ public class UIController : MonoBehaviour {
 			yield return new WaitForSeconds(_amountToAdd);
 
 			if (bar.fillAmount == 0) {
-				ChangeText("GAME OVER", "Replay");
-				levelUI.SetActive(true);
-				CharacterControl.gameOver = true;
+				EndGame("GAME OVER", "Replay");
+				
+				
 			}
 		}
 	}
@@ -47,11 +47,13 @@ public class UIController : MonoBehaviour {
 			yield return new WaitForFixedUpdate();
 		}
 	}
-	public void ChangeText(string _levelText, string _buttonText) {
+	public void EndGame(string _levelText, string _buttonText) {
 		levelOverText.alignment = TextAnchor.UpperCenter;
 		levelOverText.text = _levelText;
 		buttonText.alignment = TextAnchor.MiddleCenter;
 		buttonText.text = _buttonText;
+		levelUI.SetActive(true);
+		CharacterControl.canPlay = false;
 
 	}
 	// public void ScoreUpdate(int _score) {
