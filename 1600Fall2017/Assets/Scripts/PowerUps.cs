@@ -30,9 +30,9 @@ public class PowerUps : MonoBehaviour {
 			case PowerUpType.PowerDown:
 				StartCoroutine(controller.PowerDownBar(powerLevel, amountToAdd));
 				break;
-			case PowerUpType.Jump:
-				CharacterControl.airJump = 3;
-				break;
+			// case PowerUpType.Jump:  **Work On, needs to reset airJump to the regular value after use**
+			// 	CharacterControl.airJump = 3;
+			// 	break;
 			case PowerUpType.Coin:
 				StartCoroutine(controller.CollectCoin(coinValue));
 				break;
