@@ -38,7 +38,7 @@ public class PowerUps : MonoBehaviour {
 				break;
 			case PowerUpType.LevelWon:
 				CharacterControl.gameOver = true;
-				controller.ChangeText("You Win!", "Next Level");
+				controller.ChangeText("YOU WIN!", "Next Level");
 				controller.levelUI.SetActive(true);
 				break;
 		}
