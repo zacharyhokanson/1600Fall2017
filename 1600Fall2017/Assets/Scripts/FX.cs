@@ -13,7 +13,7 @@ public class FX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//line.SetPositions(0, start);
+		//line.SetPositions(0, start.position);
 		//line.SetPositions(end, 1);
 	}
 }
