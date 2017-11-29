@@ -9,7 +9,7 @@ public class MovingPlatform : MonoBehaviour {
 	//have check for left and right bounds 
 	public CharacterController characterController;
 	void Start () {
-		moveVector3.x = speed;
+		moveVector3.x = speed * Time.deltaTime;
 	}
 	
 	// Update is called once per frame
