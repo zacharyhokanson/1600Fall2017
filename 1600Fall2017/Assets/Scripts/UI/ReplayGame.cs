@@ -16,11 +16,11 @@ public class ReplayGame : MonoBehaviour {
 		startPosition = player.position;
 		fillAmount = uiBar.fillAmount;
 	}
-	public void Click() {
-		player.position = startPosition;
-		uiBar.fillAmount = fillAmount;
-		GameOverUI.SetActive(false);
-		CharacterControl.canPlay = true;
+	public void Click() { //when button is clicked
+		player.position = startPosition;//reset player position to the startPosition
+		uiBar.fillAmount = fillAmount;//reset health bar to initial fill level
+		GameOverUI.SetActive(false);//Turn of UI
+		CharacterControl.canPlay = true;//Tell CharacterControl that canPlay is true
 	}
 
 

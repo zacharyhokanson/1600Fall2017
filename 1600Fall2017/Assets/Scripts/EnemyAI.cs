@@ -6,11 +6,11 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour {
 
-	public Transform player;
-	public NavMeshAgent agent;
+	public Transform player; //defines player
+	public NavMeshAgent agent; //defines enemy
 
 	// Update is called once per frame
 	void Update () {
-		agent.destination = player.position;
+		agent.destination = player.position; //sets the enemy's destination to the player
 	}
 }

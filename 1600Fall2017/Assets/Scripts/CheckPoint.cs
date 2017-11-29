@@ -5,6 +5,6 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour {
 
 	void OnTriggerEnter() {
-		ReplayGame.startPosition = transform.position;
+		ReplayGame.startPosition = transform.position; //sets the startPosition varibale in ReplayGame
 	}
 }
