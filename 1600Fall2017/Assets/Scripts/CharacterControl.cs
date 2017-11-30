@@ -11,8 +11,19 @@ public class CharacterControl : MonoBehaviour {
 	public float speed = 30;
 	public Vector3 moveVector3;
 	public CharacterController characterController;
-	void Start () {
-		
+
+	void OnTriggerStay(Collider other){
+
+		if (other.gameObject.tag == "Platform"){
+			transform.parent = other.transform;
+
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if(other.gameObject.tag == "Platform"){
+			transform.parent = null;
+		}	
 	}
 	
 	void FixedUpdate () {

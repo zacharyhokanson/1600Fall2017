@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour {
+public class Patrol : MonoBehaviour {
 	public float speed = 10;
 	public Vector3 moveVector3;
-	// use character controller to handle movement 
-	//have check for left and right bounds 
-	//public CharacterController characterController;
+
 
 	void OnTriggerEnter()
 	{
