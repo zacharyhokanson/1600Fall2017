@@ -6,7 +6,7 @@ public class CharacterControl : MonoBehaviour {
 	public static bool canPlay = true;
 	public float gravity = 9.81f;
 	public float jumpForce = 150;
-	public static int airJump = 2	;
+	public static int airJump = 2;
 	public int jumps = airJump;
 	public float speed = 30;
 	public Vector3 moveVector3;
@@ -17,19 +17,21 @@ public class CharacterControl : MonoBehaviour {
 		if (other.gameObject.tag == "Platform"){
 			transform.parent = other.transform; //stick to the platform
 
+
 		}
 	}
 
 	void OnTriggerExit(Collider other){ //when uncollided with platform
 		if(other.gameObject.tag == "Platform"){
 			transform.parent = null; //become independent again
+
 		}	
 	}
 	
 	void FixedUpdate () {
 		if (canPlay) { // checks if var canPlay is true
 			
-			if (!characterController.isGrounded){ // checks if player is  not on the ground
+			if (!characterController.isGrounded && transform.parent == null){ // checks if player is  not on the ground
 				moveVector3.y -= gravity * Time.deltaTime;// applies gravity
 			}
 			else {
