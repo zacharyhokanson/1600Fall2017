@@ -12,17 +12,17 @@ public class CharacterControl : MonoBehaviour {
 	public Vector3 moveVector3;
 	public CharacterController characterController;
 
-	void OnTriggerStay(Collider other){
+	void OnTriggerStay(Collider other){ //when Collideing with a platform
 
 		if (other.gameObject.tag == "Platform"){
-			transform.parent = other.transform;
+			transform.parent = other.transform; //stick to the platform
 
 		}
 	}
 
-	void OnTriggerExit(Collider other){
+	void OnTriggerExit(Collider other){ //when uncollided with platform
 		if(other.gameObject.tag == "Platform"){
-			transform.parent = null;
+			transform.parent = null; //become independent again
 		}	
 	}
 	

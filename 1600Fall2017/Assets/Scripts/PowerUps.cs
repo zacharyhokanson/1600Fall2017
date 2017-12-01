@@ -17,12 +17,14 @@ public class PowerUps : MonoBehaviour {
 		PowerDown,
 		Jump,
 		Coin,
-		LevelWon
+		LevelWon,
+		//HBound
+
 	}
 	public PowerUpType powerUp;
-
-	void OnTriggerEnter () {
-		switch (powerUp) // checks for type of PowerUp
+	public Patrol patrol;
+	void OnTriggerEnter () {//checks for powerup type
+		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
 				StartCoroutine(controller.PowerUpBar(powerLevel, amountToAdd));//runs Coroutine in UIController script
@@ -41,6 +43,15 @@ public class PowerUps : MonoBehaviour {
 				controller.EndGame("You Win!", "Next Level");//runs UIController EndGame function
 				//controller.levelUI.SetActive(true);
 				break;
+			// case PowerUpType.HBound:
+			// 	if (patrol.gameObject.tag == "Platform") {
+			// 		patrol.speed = patrol.speed * -1;
+			// 		print("Hello");
+			// 		//print(patrol.speed);
+			// 	}
+				
+				// break;
+
 		}
 	}	
 
