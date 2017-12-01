@@ -9,30 +9,30 @@ public class PointPatrol : MonoBehaviour {
 	//public Vector3 pointA;
 	public Vector3 destination;
 	public int index = 0;
-
+	public enum PlatformType
+	{
+		Line,
+		Cycle
+	}
+	public PlatformType platformType;
 	void Start() {
-		//UpdateTarget();
-		//print(points.Length);
 		destination = points[index].position;
 	}
-	void UpdateTarget(){ //Updates what the current target point is
+	void UpdateTarget(){
 		if (destination == transform.position) { //if platform is at its destination
-			index += 1; 
-			if (index > points.Length) { //if index is higher than array length
-				index = 0; //reset index to 0
-			}
-			destination = points[index].position; //set destination to the next point in the array
-			
-			//print(index); //debug
+				index ++; 
+				if (index >= points.Length) { //if index is higher than array length
+					if(platformType == PlatformType.Line) {
+						System.Array.Reverse(points);
+					}
+					index = 0;
+				}
+				destination = points[index].position; //set destination to the next point in the array
 		}
-
 	}
-
 	void Update() {
 		float step = speed * Time.deltaTime;
 		UpdateTarget();
-		transform.position =  Vector3.MoveTowards(transform.localPosition, destination, step);
-
-
+		transform.position =  Vector3.MoveTowards(transform.localPosition, destination, step);// moves object
 	}
  }
