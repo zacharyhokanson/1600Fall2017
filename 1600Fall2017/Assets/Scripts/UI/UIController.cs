@@ -45,8 +45,10 @@ public class UIController : MonoBehaviour {
 		while(totalScore <= tempAmount) {
 			scoreDisplay.text = (totalScore++).ToString();
 			yield return new WaitForFixedUpdate();
+
 		}
 	}
+
 	public void EndGame(string _levelText, string _buttonText) {// EndGame Function takes aguments for end screen and button text
 		//levelOverText.alignment = TextAnchor.UpperCenter;
 		levelOverText.text = _levelText;// sets end screen text

@@ -8,8 +8,8 @@ public class PowerUps : MonoBehaviour {
 	public float powerLevel = 0.1f;
 	public float amountToAdd = 0.01f;
 	public int coinValue = 10;
-	
 
+	public bool hit = false;
 	public UIController controller; //allows access to UIController script
 
 	public enum PowerUpType { //stores types of PowerUps
@@ -18,16 +18,17 @@ public class PowerUps : MonoBehaviour {
 		Jump,
 		Coin,
 		LevelWon,
-		//HBound
+
 
 	}
 	public PowerUpType powerUp;
-	public Patrol patrol;
-	void OnTriggerEnter () {//checks for powerup type
+	void OnTriggerEnter() {//checks for powerup type
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
 				StartCoroutine(controller.PowerUpBar(powerLevel, amountToAdd));//runs Coroutine in UIController script
+				StartCoroutine(PowerUpInactive());
+				//gameObject.SetActive(false);
 				break;
 			case PowerUpType.PowerDown:
 				StartCoroutine(controller.PowerDownBar(powerLevel, amountToAdd));//runs Coroutine in UIController script
@@ -37,23 +38,23 @@ public class PowerUps : MonoBehaviour {
 			// 	break;
 			case PowerUpType.Coin:
 				StartCoroutine(controller.CollectCoin(coinValue));//runs Coroutine in UIController script
+				StartCoroutine(PowerUpInactive());
+				GetComponent<MeshRenderer>().enabled = false;
 				break;
 			case PowerUpType.LevelWon:
 				//CharacterControl.canPlay = false;
 				controller.EndGame("You Win!", "Next Level");//runs UIController EndGame function
 				//controller.levelUI.SetActive(true);
 				break;
-			// case PowerUpType.HBound:
-			// 	if (patrol.gameObject.tag == "Platform") {
-			// 		patrol.speed = patrol.speed * -1;
-			// 		print("Hello");
-			// 		//print(patrol.speed);
-			// 	}
-				
-				// break;
+
 
 		}
 	}	
+public IEnumerator PowerUpInactive(){
+	
+	yield return new WaitForSeconds(1);
+	gameObject.SetActive(false);
+}
 
 	
 }
