@@ -28,7 +28,6 @@ public class ItemSpawn : MonoBehaviour {
 				print(item + " is a duplicate.");
 				print(usedValues[item]);
 				usedValues[item] = Random.Range(0, collectable.Length);
-				CheckDuplicates();
 			}
 		}
 	}
