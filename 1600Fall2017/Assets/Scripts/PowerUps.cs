@@ -8,7 +8,6 @@ public class PowerUps : MonoBehaviour {
 	public float powerLevel = 0.1f;
 	public float amountToAdd = 0.01f;
 	public int coinValue = 10;
-
 	public bool hit = false;
 	public UIController controller; //allows access to UIController script
 
@@ -26,9 +25,14 @@ public class PowerUps : MonoBehaviour {
 		switch (powerUp)
 		{
 			case PowerUpType.PowerUp:
+				if(!hit){
 				StartCoroutine(controller.PowerUpBar(powerLevel, amountToAdd));//runs Coroutine in UIController script
 				StartCoroutine(PowerUpInactive());
+				GetComponent<MeshRenderer>().enabled = false;
+				hit = true;
 				//gameObject.SetActive(false);
+				}
+				
 				break;
 			case PowerUpType.PowerDown:
 				StartCoroutine(controller.PowerDownBar(powerLevel, amountToAdd));//runs Coroutine in UIController script
@@ -37,9 +41,13 @@ public class PowerUps : MonoBehaviour {
 			// 	CharacterControl.airJump = 3;
 			// 	break;
 			case PowerUpType.Coin:
+				if(!hit){
 				StartCoroutine(controller.CollectCoin(coinValue));//runs Coroutine in UIController script
 				StartCoroutine(PowerUpInactive());
 				GetComponent<MeshRenderer>().enabled = false;
+				hit =  true;
+				}
+				
 				break;
 			case PowerUpType.LevelWon:
 				//CharacterControl.canPlay = false;
