@@ -28,8 +28,13 @@ public class ItemSpawn : MonoBehaviour {
 	}
 	void CheckDuplicates() {
 		checkedValues = usedValues.Distinct().ToList();
-		while(checkedValues.Count > spawns) {
+		if(checkedValues.Count > spawns) {
+			while(checkedValues.Count > spawns) {
 			checkedValues.RemoveAt(checkedValues.Count-1);
+			}
+		}
+		if(checkedValues.Count < spawns) {
+			GenerateSpawns();
 		}
 	}
 	void TurnOnSpawns(){
