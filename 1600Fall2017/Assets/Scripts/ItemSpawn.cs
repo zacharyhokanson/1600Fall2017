@@ -1,34 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ItemSpawn : MonoBehaviour {
-	public Transform[] collectable;
+	public GameObject[] collectable;
+	public List<int> playerCollected = new List<int>() {};
 	public List<int> usedValues = new List<int>() {};
-	public HashSet<int> checkValues = new HashSet<int>() {};
-	//public bool duplicates = true;
+	public List<int> checkedValues = new List<int>() {};
 	public int index;
-	// Use this for initialization
+	public int spawns = 3;
+	public bool duplicates = true;
+
 	void Start () {
+		//collectable[1].SetActive(true);
 		GenerateSpawns();
+		TurnOnSpawns();
 	}
 	
 
 	void GenerateSpawns() {
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < spawns * 3; i++) {
 			index = Random.Range(0, collectable.Length);
 			usedValues.Add(index);
 		}
 		CheckDuplicates();
-		
 	}
 	void CheckDuplicates() {
-		foreach (var item in usedValues) {
-			if(!checkValues.Add(item)) {
-				print(item + " is a duplicate.");
-				print(usedValues[item]);
-				usedValues[item] = Random.Range(0, collectable.Length);
-			}
+		checkedValues = usedValues.Distinct().ToList();
+		while(checkedValues.Count > spawns) {
+			checkedValues.RemoveAt(checkedValues.Count-1);
 		}
+	}
+	void TurnOnSpawns(){
+		foreach (var item in checkedValues) {
+			collectable[item].SetActive(true);
+		}
+
 	}
 }
