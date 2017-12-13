@@ -19,25 +19,25 @@ public class ItemSpawn : MonoBehaviour {
 	}
 	
 
-	void GenerateSpawns() {
+	void GenerateSpawns() { //fills usedValue list with values 
 		for (int i = 0; i < spawns * 3; i++) {
 			index = Random.Range(0, collectable.Length);
 			usedValues.Add(index);
 		}
 		CheckDuplicates();
 	}
-	void CheckDuplicates() {
+	void CheckDuplicates() { //reduces list to distinct values only
 		checkedValues = usedValues.Distinct().ToList();
-		if(checkedValues.Count > spawns) {
+		if(checkedValues.Count > spawns) {// reduces list to spawn ammount only
 			while(checkedValues.Count > spawns) {
 			checkedValues.RemoveAt(checkedValues.Count-1);
 			}
 		}
-		if(checkedValues.Count < spawns) {
+		if(checkedValues.Count < spawns) { //if list is less than spawns run process again
 			GenerateSpawns();
 		}
 	}
-	void TurnOnSpawns(){
+	void TurnOnSpawns(){ //runs through the checkedValues list and sets those array values to active 
 		foreach (var item in checkedValues) {
 			collectable[item].SetActive(true);
 		}
