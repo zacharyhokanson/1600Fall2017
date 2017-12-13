@@ -33,9 +33,9 @@ public class ItemSpawn : MonoBehaviour {
 			checkedValues.RemoveAt(checkedValues.Count-1);
 			}
 		}
-		if(checkedValues.Count < spawns) { //if list is less than spawns run process again
-			GenerateSpawns();
-		}
+		// if(checkedValues.Count < spawns) { //if list is less than spawns run process again
+		// 	GenerateSpawns();
+		// }
 	}
 	void TurnOnSpawns(){ //runs through the checkedValues list and sets those array values to active 
 		foreach (var item in checkedValues) {
